@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
 import { AppWrap } from '../../wrapper';
+import InteractiveRoom from '../../components/InteractiveRoom/InteractiveRoom';
 
 const scaleVariants = {
   whileInView: {
@@ -19,6 +20,7 @@ const scaleVariants = {
 const Header = () => {
   return (
     <div className='app__header app__flex'>
+  
       <motion.div
         whileInView={{ x: [-100,0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -45,17 +47,20 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__header-img'
       >
-        <img src={images.profile} alt="profile_bg" />
-        <motion.img
+        <div>
+          <InteractiveRoom />
+        </div>
+        
+        {/* <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           src={images.circle}
           alt='profile_circle'
           className='overlay_circle'
-        />
+        /> */}
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         variants={scaleVariants}
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
@@ -65,7 +70,7 @@ const Header = () => {
             <img src={circle} alt="circle" />
           </div>
         ))}
-      </motion.div>
+      </motion.div> */}
     </div>
   )
 }

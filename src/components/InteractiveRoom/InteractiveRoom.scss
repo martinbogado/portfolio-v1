@@ -1,0 +1,21 @@
+.app__room {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    overflow: hidden;
+
+    @media screen and (max-width: 900px) {
+        justify-content: flex-start;
+    }
+}
+
+.app__room-loading {
+  
+    @media screen and (max-width: 900px) {
+        img {
+            width: 550px;
+        }
+    }
+}

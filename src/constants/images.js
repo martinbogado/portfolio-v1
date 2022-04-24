@@ -35,9 +35,12 @@ import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
 
+import loading from '../assets/loading.gif'
+
 export default {
   email,
   mobile,
+  loading,
   api,
   cpp,
   css,
