@@ -3,6 +3,7 @@ import React, { useState} from 'react';
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
 import './Footer.scss';
 
@@ -105,7 +106,26 @@ const Footer = () => {
         <h3 className='head-text'>Thank you for getting in touch</h3>
       </div>
       }
-      
+      <hr 
+        className='app__footer-division'
+      />
+      <div className='app__footer-copyright'>
+        <img src={images.logo} alt="logo" />
+        <span>Martin Bogado</span>
+
+        <div className='app__footer-social'>
+          <a href='https://github.com/martinbogado' target='_blank'>
+              <BsGithub />
+          </a>
+          <a href='https://www.linkedin.com/in/martinbogado/' target='_blank'>
+              <BsLinkedin />
+          </a>
+        </div>
+
+        <div className='copyright'>
+          <p className='p-text'>© 2022 MARTIN All rights reserved</p>
+        </div>
+      </div>
     </>
   )
 }

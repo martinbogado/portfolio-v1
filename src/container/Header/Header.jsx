@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
 import { AppWrap } from '../../wrapper';
-import InteractiveRoom from '../../components/InteractiveRoom/InteractiveRoom';
+import { InteractiveRoom } from '../../components';
 
 const scaleVariants = {
   whileInView: {
