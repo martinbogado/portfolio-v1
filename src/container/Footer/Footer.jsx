@@ -1,13 +1,16 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import Confetti from '../../components/Confetti/Confetti';
+import { motion } from 'framer-motion';
 
 import './Footer.scss';
 
 const Footer = () => {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -49,17 +52,17 @@ const Footer = () => {
 
   return (
     <>
+      <Confetti confirmation={isFormSubmitted}/>
+      
       <h2 className='head-text'>Take a coffe & chat with me</h2>
     
       <div className='app__footer-cards'>
+
         <div className='app__footer-card'>
           <img src={images.email} alt="email" />
           <a href="mailto:martinbogado@live.com.ar" className='p-text'>martinbogado@live.com.ar</a>
         </div>
-        <div className='app__footer-card'>
-          <img src={images.mobile} alt="mobile" />
-          <a href="tel: +54 (11) 4420-0423" className='p-text'>+54 (11) 4420-0423</a>
-        </div>
+      
       </div>
 
       {
@@ -102,9 +105,12 @@ const Footer = () => {
         <button type='submit' className='p-text'>{ loading ? 'Sending' : 'Send Message'}</button>
       </form> 
        : 
-      <div>
-        <h3 className='head-text'>Thank you for getting in touch</h3>
-      </div>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.8 }}
+      >
+        <h3 className='head-text'>Thank you for getting in touch 🙌</h3>
+      </motion.div>
       }
       <hr 
         className='app__footer-division'
