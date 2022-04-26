@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import { AppWrap } from '../../wrapper';
 import { InteractiveRoom } from '../../components';
+import TypeAnimation from 'react-type-animation';
 
 const scaleVariants = {
   whileInView: {
@@ -28,16 +29,26 @@ const Header = () => {
       >
         <div className='app__header-badge'>
           <div className='badge-cmp app__flex'>
-            <span>👋</span>
             <div style={{ marginLeft: 20}}>
-              <p className='p-text'>Hello, I am</p>
-              <h1 className='head-text'>Martin</h1>
+              <h1 className='badge-tittle'>Hello <span>👋</span> I am <p>Martin</p></h1>
             </div>
           </div>
 
-          <div className='tag-cmp app__flex'>
-            <p className='p-text'>Web Developer</p>
-            <p className='p-text'>Web3 Enthusiast</p>
+          <div className='app__header-typewrapper'>
+            <TypeAnimation
+            cursor={false}
+            sequence={[
+              'Frontend Dev',
+              2000,
+              'Web Designer',
+              2000,
+              'Web3 Enthusiast',
+              2000,
+            ]}
+            repeat={Infinity}
+            wrapper='h2'
+            className='app__header-typewrite'
+           />
           </div>
         </div>
       </motion.div>

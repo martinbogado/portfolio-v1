@@ -19,6 +19,7 @@
     "react-responsive": "^9.0.0-beta.6",
     "react-scripts": "5.0.0",
     "react-tooltip": "^4.2.21",
+    "react-type-animation": "^1.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
