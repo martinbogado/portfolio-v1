@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ReactTooltip from 'react-tooltip';
+import { useMediaQuery } from 'react-responsive';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client'; 
@@ -9,7 +10,11 @@ import './Skills.scss';
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
-  const [experiences, setExperiences] = useState([])
+  const [filterSkills, setFilterSkills] = useState([]);
+  const [activeFilter, setActiveFilter] = useState('frontend');
+  const [experiences, setExperiences] = useState([]);
+
+  const isTablet = useMediaQuery({ query: '(max-width: 800px)' });
 
   useEffect(() => {
     const query = `*[_type == "experiences"]`;
@@ -21,16 +26,39 @@ const Skills = () => {
       });
 
     client.fetch(skillsQuery)
-      .then((data) => setSkills(data));  
+      .then((data) => {
+        setSkills(data);
+        setFilterSkills(data.filter( skill => skill.type === 'frontend'));
+      });  
   },[])
+
+  const handleSkillsFilter = (item) => {
+    setActiveFilter(item);
+    setFilterSkills(skills.filter( skill => skill.type === item))
+  }
 
   return (
     <>
      <h2 className='head-text'>Skills and Experience</h2>
 
+     <div className='app__skills-filter'>
+          {
+            ['frontend', 'backend'].map((item, index) => (
+              <div
+                key={index}
+                onClick={() => handleSkillsFilter(item)}
+                className={`app__skills-filter-item app__flex ${ activeFilter === item ? 'item-active' : ''}`}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </div>  
+            ))
+          }
+      </div>
+
      <div className='app__skills-container'>
+
        <motion.div className='app__skills-list'>
-        {skills?.map((skill) => (
+        {filterSkills?.map((skill) => (
           <motion.div
             whileInView={{opacity: [0, 1]}}
             transition={{ duration: 0.5 }}
@@ -70,6 +98,7 @@ const Skills = () => {
                   </motion.div>
                   <ReactTooltip
                     id={work.name}
+                    place={ isTablet ? 'bottom' : 'right'}
                     effect='solid'
                     arrowColor='#fff'
                     className='skills-tooltip'

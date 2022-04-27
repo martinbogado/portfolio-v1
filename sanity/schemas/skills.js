@@ -9,6 +9,17 @@ export default{
             type:'string'
         },
         {
+            name: 'type',
+            title: 'Type', 
+            type: 'string',
+            options: {
+              list: [
+                { title: 'Frontend', value: 'frontend' },
+                { title: 'Backend', value: 'backend' },
+              ],
+            },
+        },
+        {
             name:'bgColor',
             title:'BgColor',
             type:'string'
