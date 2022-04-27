@@ -42,6 +42,7 @@ const Header = () => {
             wrapper='h2'
             className='app__header-typewrite'
            />
+           <h2 style={{visibility:'hidden'}}>.</h2>
           </motion.div>
         </div>
       </motion.div>
