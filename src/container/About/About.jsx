@@ -3,45 +3,56 @@ import './About.scss';
 import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { images } from '../../constants';
-import { urlFor, client } from '../../client';
+import { cv } from '../../constants';
+import { AiOutlineCloudDownload } from 'react-icons/ai';
+
+const scaleVariants = {
+  whileInView: {
+    opacity: [0, 1],
+    transition: {
+      duration: 0.8,
+      ease: 'easeInOut'
+    }
+  }
+}
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "abouts"]';
-
-    client.fetch(query)
-      .then((data) => setAbouts(data))
-      .catch((err) => console.error(err))
-  },[]);
 
   return (
-    <>
-      <h2 className='head-text'>
-        I Know That <span>Good Dev</span>
-        <br />
-        Means <span>Good Business</span>
-      </h2>
+    <div className='app__about-container'>
+      <div className='app__about-media'>
+        <img src={images.profile} className='app__about-profileimg' alt="profile" />
 
-      <div className='app__profiles'>
-        {
-          abouts.map((about, index) => (
-            <motion.div
-              whileInView={{ opacity:1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration:0.5, type: 'tween'}}
-              className='app__profile-item'
-              key={about.title + index}
-            >
-              <img src={urlFor(about.imgUrl)} alt={about.title} />
-              <h2 className='bold-text' style={{ marginTop: 20 }}>{about.title}</h2>
-              <p className='p-text' style={{ marginTop: 10 }}>{about.description}</p>
-            </motion.div>
-          ))
-        }
+        <motion.div
+          variants={scaleVariants}
+          whileInView={scaleVariants.whileInView}
+          className='app__about-circles'
+        >
+        {[images.react, images.redux, images.figma].map((circle, index) => (
+          <div className='circle-cmp app__flex' key={`circle-${index}`}>
+            <img src={circle} alt="circle"/>
+          </div>
+        ))}
+        </motion.div>
       </div>
-    </>
+
+      <div className='app__about-content'>
+        <h2>About Me</h2>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <button>
+          <a href={cv} download />
+          
+          Download CV <AiOutlineCloudDownload/>
+
+        </button>
+      </div>
+    </div>
   )
 }
 

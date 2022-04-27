@@ -7,17 +7,6 @@ import { AppWrap } from '../../wrapper';
 import { InteractiveRoom } from '../../components';
 import TypeAnimation from 'react-type-animation';
 
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: 'easeInOut'
-    }
-  }
-}
-
 const Header = () => {
   return (
     <div className='app__header app__flex'>
@@ -34,7 +23,11 @@ const Header = () => {
             </div>
           </div>
 
-          <div className='app__header-typewrapper'>
+          <motion.div 
+            className='app__header-typewrapper'
+            whileInView={{ x: [100,0], opacity: [0, 1] }}
+            transition={{ duration: 0.8 }}
+          >
             <TypeAnimation
             cursor={false}
             sequence={[
@@ -49,7 +42,7 @@ const Header = () => {
             wrapper='h2'
             className='app__header-typewrite'
            />
-          </div>
+          </motion.div>
         </div>
       </motion.div>
       
@@ -71,17 +64,6 @@ const Header = () => {
         />
       </motion.div>
 
-      {/* <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className='app__header-circles'
-      >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
-          <div className='circle-cmp app__flex' key={`circle-${index}`}>
-            <img src={circle} alt="circle" />
-          </div>
-        ))}
-      </motion.div> */}
     </div>
   )
 }
