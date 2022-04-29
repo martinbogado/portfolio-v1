@@ -25,6 +25,8 @@ $tooltip-bg: 'tooltip-bg';
 $tooltip-color: 'tooltip-color';
 $theme-toggle-bg: 'theme-toggle-bg';
 $theme-toggle-translate : 'theme-toggle-translate';
+$scrollbar-bg: 'scrollbar-bg';
+$scrollbar-bar: 'scrollbar-bar';
 
 //themes
 $themes: (
@@ -53,6 +55,8 @@ $themes: (
             tooltip-color: $tooltip-color-light,
             theme-toggle-bg: $theme-toggle-light,
             theme-toggle-translate: $theme-toggle-translate-light,
+            scrollbar-bg: $scrollbar-primary-color,
+            scrollbar-bar: $scrollbar-secondary-color,
         ),
         dark: (
             secondary-bg: $secondary-dark-bg,
@@ -79,6 +83,8 @@ $themes: (
             tooltip-color: $tooltip-color-dark,
             theme-toggle-bg: $theme-toggle-dark,
             theme-toggle-translate: $theme-toggle-translate-dark,
+            scrollbar-bg: $scrollbar-secondary-color,
+            scrollbar-bar: $secondary-color,
         ),
 );
 

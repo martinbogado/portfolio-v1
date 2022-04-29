@@ -7,9 +7,7 @@ import './InteractiveRoom.scss'
 
 const InteractiveRoom = () => {
   const [loading, setLoading] = useState(true);
-  const [spline, setSpline] = useState();
 
-  const isBigScreen = useMediaQuery({ query: '(min-width: 2000px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 900px)' });
   const isMediaTablet = useMediaQuery({ query: '(max-width: 650px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 450px)' })

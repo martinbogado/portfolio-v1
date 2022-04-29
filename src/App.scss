@@ -1,5 +1,15 @@
 @import '/src/constants/themes.scss';
 
+::-webkit-scrollbar{
+    width: 8px;
+    background-color: rgba(204, 204, 204, 0.616);
+}
+  
+::-webkit-scrollbar-thumb{
+    background-color: #3d3c4773;
+    border-radius: 4px;
+}
+
 .app {
     @include themed() {
         background-color: t($primary-bg);
