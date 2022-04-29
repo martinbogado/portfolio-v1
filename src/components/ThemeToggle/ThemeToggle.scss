@@ -1,0 +1,59 @@
+@import '../../constants/themes.scss';
+
+.app__toggle-button {
+    width: 3.2rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+
+    div {
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0.25rem;
+        border-radius: 50%;
+        
+        @include themed() {
+            background-color: t($theme-toggle-bg);
+            transform: t($theme-toggle-translate);
+        }
+
+        color: #ffffff;
+  
+        position: relative;  
+        
+        transition: all 0.5s ease;
+
+        @media screen and (max-width: 900px ) {
+            svg {
+                display: none;
+            }
+
+            img {
+                width: 90%;
+                height: 90%;
+                display: block;
+                margin: auto;
+            }
+        }
+        @media screen and (min-width: 900px ) {
+            img {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        position: absolute;
+        left: 2rem;
+        top: 2rem;
+    }
+}

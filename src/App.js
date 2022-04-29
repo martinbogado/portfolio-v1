@@ -1,18 +1,23 @@
-import React from 'react';
-import { About, Footer, Header, Skills, Testimonial, Work } from './container';
+import React, { useState } from 'react';
+import { About, Footer, Header, Skills, Work } from './container';
 import { Navbar } from './components';
 import './App.scss';
 
 const App = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
+
+  function changeTheme() {
+    setDarkTheme(!darkTheme)
+  }
+
   return (
-    <div className='app'>
-      <Navbar />
-      <Header />
+    <div className={'app ' + ( darkTheme ? 'theme--dark' : 'theme--default')}>
+      <Navbar changeTheme={changeTheme} darkTheme={darkTheme} />
+      <Header darkTheme={darkTheme} />
       <About />
       <Work />
       <Skills />
-      {/* <Testimonial /> */}
-      <Footer />
+      <Footer darkTheme={darkTheme} />
     </div>
   )
 }

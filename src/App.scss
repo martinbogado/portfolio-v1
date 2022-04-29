@@ -1,14 +1,23 @@
+@import '/src/constants/themes.scss';
+
 .app {
-    background-color: var(--primary-color);
+    @include themed() {
+        background-color: t($primary-bg);
+    }
+
     font-family: var(--font-base);
 }
   
-.app__whitebg {
-    background-color: var(--white-color);
+.app__secondarybg {
+    @include themed() {
+        background-color: t($secondary-bg);
+    }
 }
   
 .app__primarybg {
-    background-color: var(--primary-color);
+    @include themed() {
+        background-color: t($primary-bg);
+    }
 }
   
 .app__container {
@@ -48,7 +57,10 @@
 
     p {
         text-transform: uppercase;
-        color: var(--black-color);
+        
+        @include themed() {
+            color: t($text-color);
+        }
     }
 }
   
@@ -56,11 +68,16 @@
     font-size: 2.75rem;
     font-weight: 800;
     text-align: center;
-    color: var(--black-color);
+    
+    @include themed() {
+        color: t($text-color);
+    }
     text-transform: capitalize;
 
     span {
-        color: var(--secondary-color);
+        @include themed() {
+            color: t($active-item);
+        }
     }
 
     @media screen and (min-width: 2000px) {
@@ -86,7 +103,10 @@
 .bold-text {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--black-color);
+
+    @include themed() {
+        color: t($text-color);
+    }
     text-align: left;
 
     @media screen and (min-width: 2000px) {
@@ -111,10 +131,15 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: var(--white-color);
-        margin: 0.25rem 0;
-        border: 1px solid var(--lightGray-color);
 
+      
+        @include themed() {
+            background-color: t($form-background);
+            border: t($social-div-border)
+        }
+
+        margin: 0.25rem 0;
+       
         display: flex;
         justify-content: center;
         align-items: center;
@@ -128,8 +153,10 @@
         }
 
         &:hover {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
+            @include themed() {
+              background-color: t($active-item);
+              border-color: t($active-item);
+            }
 
             svg {
                 color: var(--white-color);

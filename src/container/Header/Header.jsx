@@ -7,7 +7,7 @@ import { AppWrap } from '../../wrapper';
 import { InteractiveRoom } from '../../components';
 import TypeAnimation from 'react-type-animation';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='app__header app__flex'>
   
@@ -59,7 +59,7 @@ const Header = () => {
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
-          src={images.circle}
+          src={ props.darkTheme ? images.darkCircle : images.circle }
           alt='profile_circle'
           className='overlay_circle'
         />

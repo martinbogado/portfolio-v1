@@ -1,3 +1,5 @@
+@import '../../constants/themes.scss';
+
 .app__footer {
     flex: 1;
     width: 100%;
@@ -23,7 +25,10 @@
         padding: 1rem;
         border-radius: 10px;
         cursor: pointer;
-        background-color: #f6fbff;
+    
+        @include themed() {
+            background-color: t($contact-card);
+        }
 
         transition: all 0.3s ease-in-out;
 
@@ -43,7 +48,10 @@
         }
 
         &:hover {
-            box-shadow: 0 0 25px #dfdcdc;
+            // box-shadow: 0 0 25px #dfdcdc;
+            @include themed() {
+                box-shadow: t($box-shadow);
+            }
         }
 
         @media screen and (max-width: 450px) {
@@ -67,16 +75,21 @@
         margin: 0.75rem 0;
         border-radius: 10px;
         cursor: pointer;
-        background-color: var(--white-color);
 
-        transition: all 0.3s ease-in-out;
+        // background-color: var(--white-color);
+        @include themed() {
+            background-color: t($form-background);
+        }
 
         input, textarea {
            width: 100%;
            padding: 0.95rem;
            border: none;
            border-radius: 7px;
-           background-color: var(--white-color);
+        //    background-color: var(--white-color);
+           @include themed() {
+            background-color: t($form-background);
+           }
 
            font-family: var(--font-base);
            color: var(--secondary-color);
@@ -89,7 +102,11 @@
         }
 
         &:hover {
-            box-shadow: 0 0 25px #dfdcdc;
+            // box-shadow: 0 0 25px #dfdcdc;
+            @include themed() {
+                box-shadow: t($form-shadow);
+                transition: all 0.3s ease-in-out;
+            }
         }
 
     }
@@ -98,7 +115,10 @@
         padding: 1rem 2rem;
         border-radius: 10px;
         border: none;
-        background-color: var(--secondary-color);
+        
+        @include themed() {
+            background-color: t($button-color);
+        }
 
         font-weight: 500;
         color: var(--white-color);
@@ -109,7 +129,9 @@
         transition: all 0.5s ease;
 
         &:hover {
-            background-color: rgb(14, 6, 136);
+            @include themed() {
+                background-color: t($button-hover-color);
+            }
         }
     }
 
@@ -124,6 +146,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @include themed() {
+        color: t($text-color)
+    }
 
     img {
         max-width: 250px;
@@ -155,9 +180,12 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: var(--white-color);
         margin: 0.25rem 0.5rem;
-        border: 1px solid var(--lightGray-color);
+       
+        @include themed() {
+            background-color: t($form-background);
+            border: t($social-div-border)
+        }
 
         display: flex;
         justify-content: center;
@@ -172,8 +200,10 @@
         }
 
         &:hover {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
+            @include themed() {
+              background-color: t($active-item);
+              border-color: t($active-item);
+            }
 
             svg {
                 color: var(--white-color);

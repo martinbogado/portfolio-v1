@@ -23,9 +23,15 @@ import about02 from '../assets/about02.png';
 import about03 from '../assets/about03.png';
 import about04 from '../assets/about04.png';
 
+import sun from '../assets/sun.png';
+import moon from '../assets/moon.png';
+
 import profile from '../assets/profile.jpg';
 import circle from '../assets/circle.svg';
+import darkCircle from '../assets/dark-circle.svg'
 import logo from '../assets/logo.png';
+import darkLogo from '../assets/logo-dark.svg';
+import lightLogo from '../assets/logo-light.svg';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -64,7 +70,12 @@ export default {
   about04,
   profile,
   circle,
+  darkCircle,
   logo,
+  darkLogo,
+  lightLogo,
+  sun,
+  moon,
   adidas,
   amazon,
   asus,

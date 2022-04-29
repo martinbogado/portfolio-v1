@@ -9,8 +9,7 @@ import { motion } from 'framer-motion';
 
 import './Footer.scss';
 
-const Footer = () => {
-
+const Footer = (props) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,7 +53,7 @@ const Footer = () => {
     <>
       <Confetti confirmation={isFormSubmitted}/>
       
-      <h2 className='head-text'>Take a coffe & chat with me</h2>
+      <h2 className='head-text'>Let's work together!</h2>
     
       <div className='app__footer-cards'>
 
@@ -116,7 +115,7 @@ const Footer = () => {
         className='app__footer-division'
       />
       <div className='app__footer-copyright'>
-        <img src={images.logo} alt="logo" />
+        <img src={ props.darkTheme ? images.darkLogo : images.lightLogo } alt="logo" />
         <span>Martin Bogado</span>
 
         <div className='app__footer-social'>

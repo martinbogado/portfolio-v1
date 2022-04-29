@@ -1,3 +1,5 @@
+@import '../../constants/themes.scss';
+
 .app__works {
   flex: 1;
   width: 100%;
@@ -16,9 +18,12 @@
     .app__work-filter-item {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
-        background-color: #fff;
 
-        color: #000;
+        @include themed() {
+            background: t($secondary-bg);
+            color: t($text-color);
+        }
+
         font-weight: 800;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -33,11 +38,19 @@
             padding: 1rem 2rem;
             border-radius: 0.85rem;
         }
+
     }
 
     .item-active {
-        background-color: var(--secondary-color);
-        color: #fff; 
+        @include themed() {
+            background-color: t($active-item);
+            color: #fff
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -54,14 +67,21 @@
         margin: 2rem;
         padding: 1rem;
         border-radius: 0.5rem;
-        background-color: white;
+
+        // background-color: white;
+        @include themed() {
+            background-color: t($secondary-bg);
+        }
         color: #000;
 
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
-            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            // box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            @include themed() {
+                box-shadow: t($box-shadow);
+            }
         }
 
         @media screen and (min-width: 2000px) {
@@ -162,7 +182,11 @@
 
         padding: 0.5rem 1rem;
         border-radius: 10px;
-        background-color: #fff;
+
+        @include themed() {
+            background: t($secondary-bg);
+        }
+
         top: -25px;
     }
 
@@ -174,7 +198,10 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: rgba(0,0,0,0.9);
+            // background-color: rgba(0,0,0,0.9);
+            @include themed() {
+                background-color: t($work-links-mobile-bg);
+            }
             color: #fff;
 
             margin: 0.8rem 1.5rem 0;
@@ -186,7 +213,9 @@
             svg {
                 width: 55%;
                 height: 55%;
-                color: var(--white-color);
+                @include themed() {
+                    color: t($work-links-mobile-color)
+                }
             }
         }
 

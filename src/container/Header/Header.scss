@@ -1,10 +1,15 @@
+@import '../../constants/themes.scss';
+
 #home {
   position: relative;
-  background: url('../../assets/bgIMG.png');
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center;
-
+//   background: url('../../assets/about03.png');
+  @include themed() {
+    background: t($bg-img);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;  
+  }
+  
     .app__wrapper {
       padding: 0;
 
@@ -72,7 +77,11 @@
         font-size: 2.75rem;
         font-weight: 800;
         text-align: left;
-        color: var(--black-color);
+
+        @include themed() {
+          color: t($text-color);
+        }
+        // color: var(--black-color);
 
         p {
             font-size: 3.8rem;

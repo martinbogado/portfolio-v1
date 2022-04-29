@@ -1,0 +1,101 @@
+@import 'variables.scss';
+
+//shortcuts
+$primary-bg: 'primary-bg';
+$secondary-bg: 'secondary-bg';
+$bg-img: 'bg-img';
+$text-color: 'text-color';
+$box-shadow: 'box-shadow';
+$navbar-background: 'navbar-background';
+$navbar-border: 'navbar-border';
+$gray-color: 'gray-color';
+$navbar-mobile: 'navbar-mobile';
+$active-item: 'active-item';
+$skills-background: 'skills-background';
+$skills-shadow: 'skills-shadow';
+$form-shadow: 'form-shadow';
+$contact-card: 'contact-card';
+$form-background: 'form-background';
+$social-div-border: 'social-div-border';
+$button-color: 'button-color';
+$button-hover-color: 'button-hover-color';
+$work-links-mobile-color: 'work-links-mobile-color';
+$work-links-mobile-bg: 'work-links-mobile-bg';
+$tooltip-bg: 'tooltip-bg';
+$tooltip-color: 'tooltip-color';
+$theme-toggle-bg: 'theme-toggle-bg';
+$theme-toggle-translate : 'theme-toggle-translate';
+
+//themes
+$themes: (
+        default: (
+            secondary-bg: $white-color,
+            primary-bg: $primary-color,
+            bg-img: $bg-img-light,
+            text-color: $black-color,
+            box-shadow: $box-shadow-light,
+            navbar-background: $nav-light-background,
+            navbar-border: $nav-light-border,
+            gray-color: $gray-color-light,
+            navbar-mobile: $mobile-nav-background-light,
+            active-item: $secondary-color,
+            skills-background: $skills-background-light,
+            skills-shadow: $skills-shadow-light,
+            form-shadow: $form-shadow-light,
+            form-background: $form-background-light,
+            contact-card: $contact-card-light,
+            social-div-border: $lightGray-color,
+            button-color: $secondary-color,
+            button-hover-color: $hover-button-light,
+            work-links-mobile-bg: $mobile-work-light,
+            work-links-mobile-color: $white-color,
+            tooltip-bg: $tooltip-bg-light,
+            tooltip-color: $tooltip-color-light,
+            theme-toggle-bg: $theme-toggle-light,
+            theme-toggle-translate: $theme-toggle-translate-light,
+        ),
+        dark: (
+            secondary-bg: $secondary-dark-bg,
+            primary-bg: $primary-dark-bg,
+            bg-img: $bg-img-dark,
+            text-color: $white-color,
+            box-shadow: $box-shadow-dark,
+            navbar-background: $nav-dark-background,
+            navbar-border: $nav-dark-border,
+            gray-color: $gray-color-dark,
+            navbar-mobile: $mobile-nav-background-dark,
+            active-item: $secondary-color,
+            skills-background: $skills-background-dark,
+            skills-shadow: $skills-shadow-dark,
+            form-shadow: $form-shadow-dark,
+            form-background: $form-background-dark,
+            contact-card: $contact-card-dark,
+            social-div-border: $social-border-dark,
+            button-color: $secondary-color-dark,
+            button-hover-color: $hover-button-dark,
+            work-links-mobile-bg: $mobile-work-dark,
+            work-links-mobile-color: $secondary-dark-bg,
+            tooltip-bg: $tooltip-bg-dark,
+            tooltip-color: $tooltip-color-dark,
+            theme-toggle-bg: $theme-toggle-dark,
+            theme-toggle-translate: $theme-toggle-translate-dark,
+        ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
