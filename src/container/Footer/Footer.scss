@@ -20,6 +20,7 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        position: relative;
 
         margin: 1rem 0;
         padding: 1rem;
@@ -42,9 +43,17 @@
             font-weight: 600;
         }
 
-        a {
+        span {
             text-decoration: none;
             font-weight: 500;
+        }
+
+        a {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;    
         }
 
         &:hover {
@@ -86,13 +95,14 @@
            padding: 0.95rem;
            border: none;
            border-radius: 7px;
-        //    background-color: var(--white-color);
+      
            @include themed() {
             background-color: t($form-background);
+            color: t($text-color)
            }
 
            font-family: var(--font-base);
-           color: var(--secondary-color);
+    
            outline: none;
         }
 
@@ -101,8 +111,7 @@
             resize: none;
         }
 
-        &:hover {
-            // box-shadow: 0 0 25px #dfdcdc;
+        &:hover { 
             @include themed() {
                 box-shadow: t($form-shadow);
                 transition: all 0.3s ease-in-out;

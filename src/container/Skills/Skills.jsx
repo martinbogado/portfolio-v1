@@ -22,7 +22,7 @@ const Skills = () => {
 
     client.fetch(query)
       .then((data) => {
-        setExperiences(data);
+        setExperiences(data.sort( (a,b) => b.year - a.year));
       });
 
     client.fetch(skillsQuery)
@@ -43,7 +43,7 @@ const Skills = () => {
 
      <div className='app__skills-filter'>
           {
-            ['frontend', 'backend'].map((item, index) => (
+            ['frontend', 'backend', 'tools'].map((item, index) => (
               <div
                 key={index}
                 onClick={() => handleSkillsFilter(item)}

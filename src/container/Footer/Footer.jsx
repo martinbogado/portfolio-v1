@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -59,14 +59,15 @@ const Footer = (props) => {
 
         <div className='app__footer-card'>
           <img src={images.email} alt="email" />
-          <a href="mailto:martinbogado@live.com.ar" className='p-text'>martinbogado@live.com.ar</a>
+          <span className='p-text'>martinbogado@live.com.ar</span>
+          <a href="mailto:martinbogado@live.com.ar" className='p-text'></a>
         </div>
-      
+
       </div>
 
       {
         !isFormSubmitted ?
-        <form 
+      <form 
         className='app__footer-form app__flex'
         onSubmit={(e) => handleSubmit(e)}
       >
@@ -111,9 +112,7 @@ const Footer = (props) => {
         <h3 className='head-text'>Thank you for getting in touch 🙌</h3>
       </motion.div>
       }
-      <hr 
-        className='app__footer-division'
-      />
+      <hr className='app__footer-division' />
       <div className='app__footer-copyright'>
         <img src={ props.darkTheme ? images.darkLogo : images.lightLogo } alt="logo" />
         <span>Martin Bogado</span>
