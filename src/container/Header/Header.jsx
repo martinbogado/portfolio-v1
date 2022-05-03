@@ -1,11 +1,13 @@
 import React from 'react';
-import './Header.scss';
 import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
 import { AppWrap } from '../../wrapper';
+
 import { InteractiveRoom } from '../../components';
 import TypeAnimation from 'react-type-animation';
+
+import './Header.scss';
 
 const Header = (props) => {
   return (

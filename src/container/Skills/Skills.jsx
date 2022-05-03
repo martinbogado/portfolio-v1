@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { urlFor, client } from '../../client';
+import { AppWrap, MotionWrap } from '../../wrapper';
+
 import ReactTooltip from 'react-tooltip';
 import { useMediaQuery } from 'react-responsive';
 
-import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../client'; 
 import './Skills.scss';
 
 
@@ -84,14 +85,13 @@ const Skills = () => {
              </div>
              <motion.div className='app__skills-exp-works'>
               {experience.works?.map((work) => (
-                <>
+                <React.Fragment  key={work.name}>
                   <motion.div
                   whileInView={{opacity: [0, 1]}}
                   transition={{ duration: 0.5 }}
                   className='app__skills-exp-work app__flex'
                   data-tip
                   data-for={work.name}
-                  key={work.name}
                   >
                     <h4 className='bold-text'>{work.name}</h4>
                     <p className='p-text'>{work.company}</p>
@@ -105,7 +105,7 @@ const Skills = () => {
                   >
                     {work.desc}
                   </ReactTooltip>
-                </>
+                </React.Fragment>
               ))}
              </motion.div>
            </motion.div>

@@ -56,7 +56,6 @@
             display: inline-block;
             position: relative;
 
-            // color: var(--gray-color);
             @include themed() {
                 color: t($gray-color);
             }
@@ -70,7 +69,9 @@
             transition: all 0.2s ease-in-out;
 
             &:hover {
-                color: var(--secondary-color);
+                @include themed() {
+                    color: t($button-color);
+                }
             }
 
             &:after {
@@ -81,7 +82,11 @@
                 height: 2px;
                 bottom: 0;
                 left: 0;
-                background-color: var(--secondary-color);
+
+                @include themed() {
+                    background-color: t($button-color);
+                }
+               
                 transform-origin: bottom right;
                 transition: transform 0.25s ease-out;
             }

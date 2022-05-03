@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './About.scss';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
+
 import { images } from '../../constants';
 import { cv } from '../../constants';
+
 import { AiOutlineCloudDownload } from 'react-icons/ai';
+import './About.scss';
 
 const scaleVariants = {
   whileInView: {

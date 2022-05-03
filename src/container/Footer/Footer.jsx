@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
-import Confetti from '../../components/Confetti/Confetti';
-import { motion } from 'framer-motion';
 
+import Confetti from '../../components/Confetti/Confetti';
+
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import './Footer.scss';
 
 const Footer = (props) => {
