@@ -44,7 +44,7 @@ const Skills = () => {
 
      <div className='app__skills-filter'>
           {
-            ['frontend', 'backend', 'tools'].map((item, index) => (
+            ['frontend', 'backend', 'blockchain'].map((item, index) => (
               <div
                 key={index}
                 onClick={() => handleSkillsFilter(item)}
