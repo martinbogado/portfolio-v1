@@ -37,7 +37,7 @@ const Header = (props) => {
               2000,
               'Web Designer',
               2000,
-              'Web3 Enthusiast',
+              'Personal Growth Enthusiast',
               2000,
             ]}
             repeat={Infinity}
