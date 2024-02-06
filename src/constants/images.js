@@ -7,7 +7,7 @@ import redux from "../assets/redux.png";
 import sun from "../assets/sun.png";
 import moon from "../assets/moon.png";
 
-import profile from "../assets/profile.png";
+import profile from "../assets/profile.jpg";
 import circle from "../assets/circle.svg";
 import darkCircle from "../assets/dark-circle.svg";
 import logo from "../assets/logo.png";
