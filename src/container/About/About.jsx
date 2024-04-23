@@ -48,13 +48,14 @@ const About = () => {
           whileInView={{ x: [50,0], opacity: [0, 1] }}
           transition={{ delay: 0.2 }}
         >
-        I'm a Graduate Student from <strong>Henry</strong>'s Bootcamp. 
-        I developed my skills as a Full Stack Developer, 
-        but nowadays I seek to improve my work as a <strong>Frontend Developer</strong>.
-        During the pandemic, I decided to change the course of my life and I was encouraged to enter the IT world.
-        <br /><br />
-        I love developing innovative and creative projects that could impact positively the life of others. I'm always looking for new challenges and I am usually quite 
-        meticulous when it comes to working. I look for a way to make my projects pleasing to the eye.
+          With over three years of experience in <strong>Full Stack development</strong>, I
+          specialize in <strong>React + Node.js</strong> and have a strong knowledge in building
+          applications using Next.js.
+          <br />
+          I have contributed to a variety of projects of
+          different complexity, from participating in hackathons, like <strong>Chainlink Spring 2022 Hackathon</strong> and the <strong>AI Code Fest by Globant</strong>,
+          covering diverse industries such as AI and Blockchain, to collaborations with
+          international companies, like <strong>SoyHabitue</strong> and <strong>PideDirecto</strong>.
         </motion.p>
         <motion.button whileInView={{ opacity:[0,1]}} transition={{ duration: 0.3 }}>
           <a href={cv} download />

@@ -33,7 +33,7 @@ const Header = (props) => {
             <TypeAnimation
             cursor={false}
             sequence={[
-              'Frontend Dev',
+              'Full Stack Developer',
               2000,
               'Web Designer',
               2000,
